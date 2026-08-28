@@ -35,14 +35,11 @@ Raw GitHub fallback:
 https://raw.githubusercontent.com/namillis/nuvio-altstore/main/nuvio-ios.json
 ```
 
-## Available apps
+## Available app
 
 | App | Bundle identifier | Latest version | Minimum iOS | Upstream |
 |---|---|---:|---:|---|
 | Nuvio | `com.nuvio.media` | 0.4.11 (build 115) | 16.1 | [NuvioMobile](https://github.com/NuvioMedia/NuvioMobile/releases) |
-| Nuvio Alpha (Legacy) | `com.nuvio.app` | 1.0.0 (build 1) | 15.1 | [0.4.0-alpha](https://github.com/NuvioMedia/NuvioMobile/releases/tag/0.4.0-alpha) |
-
-The historical alpha is a separate app because its IPA uses `com.nuvio.app`, while current Nuvio uses `com.nuvio.media`. Its GitHub release tag is `0.4.0-alpha`, but the embedded iOS version is `1.0.0` build `1`.
 
 ## Compatible signing apps
 
@@ -105,7 +102,6 @@ nuvio-altstore/
 
 - **Unofficial source:** NuvioMedia does not maintain or support this repository.
 - **Sporadic iOS assets:** Most upstream releases are Android-only. The updater keeps the newest stable release that actually includes an IPA.
-- **Historical coverage:** Upstream published only one historical iOS IPA, `0.4.0-alpha`; it is listed separately because it uses a different bundle identifier.
 - **Sideloading requirements:** You need a compatible signing app and Apple ID.
 - **Signature expiry:** Apps signed with a free Apple ID normally expire after 7 days. Paid developer signatures can last up to 1 year.
 - **Upstream dependency:** Downloads stop working if NuvioMedia removes or renames its GitHub release assets.
