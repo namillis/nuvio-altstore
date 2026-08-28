@@ -2,7 +2,7 @@
   "name": "Nuvio iOS (Unofficial AltStore Source)",
   "identifier": "community.nuvio.ios",
   "subtitle": "A free, open-source media app — unofficial AltStore-compatible source for iOS and iPadOS.",
-  "description": "An unofficial AltStore source for Nuvio on iPhone and iPad. Nuvio turns your own media sources into a library with artwork, ratings, subtitles, and synchronized progress. IPAs are served directly from NuvioMedia's public GitHub releases. This community source is not affiliated with or supported by NuvioMedia.",
+  "description": "An unofficial AltStore source for Nuvio on iPhone and iPad. Nuvio turns your own media sources into a library with artwork, ratings, subtitles, and synchronized progress. This source includes the current stable iOS app and the only historical alpha IPA published upstream. IPAs are served directly from NuvioMedia's public GitHub releases. This community source is not affiliated with or supported by NuvioMedia.",
   "iconURL": "https://nuvio.tv/assets/Logo_1080x1080.png",
   "headerURL": "https://nuvio.tv/assets/nuvio-social-preview.png",
   "website": "https://nuvio.tv/",
@@ -44,6 +44,38 @@
       "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.11/nuvio-0.4.11-full-release.ipa",
       "size": 51638510,
       "minOSVersion": "16.1"
+    },
+    {
+      "name": "Nuvio Alpha (Legacy)",
+      "bundleIdentifier": "com.nuvio.app",
+      "developerName": "NuvioMedia",
+      "subtitle": "Historical 0.4.0-alpha iOS build.",
+      "localizedDescription": "The only historical Nuvio IPA published before the current iOS app. The upstream release is tagged 0.4.0-alpha, while its embedded iOS version is 1.0.0 build 1. It installs separately because it uses the legacy com.nuvio.app bundle identifier. Requires iPhone or iPad with iOS 15.1 or later.",
+      "iconURL": "https://nuvio.tv/assets/Logo_1080x1080.png",
+      "tintColor": "#4F7CFF",
+      "category": "entertainment",
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "buildVersion": "1",
+          "date": "2025-07-27",
+          "localizedDescription": "Added Local Providers Support\nFixed iPad Videoplayer Issue\nReduced Ram usage\nreduced heating issues",
+          "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.0-alpha/Alpha4.ipa",
+          "size": 33142764,
+          "sha256": "9b3ff846d441b53db42812d39f63901a9072e96ae7fc88f26796ce6c8f1ca394",
+          "minOSVersion": "15.1"
+        }
+      ],
+      "version": "1.0.0",
+      "versionDate": "2025-07-27",
+      "versionDescription": "Added Local Providers Support\nFixed iPad Videoplayer Issue\nReduced Ram usage\nreduced heating issues",
+      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.0-alpha/Alpha4.ipa",
+      "size": 33142764,
+      "minOSVersion": "15.1"
     }
   ],
   "news": [
@@ -55,6 +87,16 @@
       "date": "2026-08-26",
       "notify": false,
       "appID": "com.nuvio.media",
+      "imageURL": "https://nuvio.tv/assets/Logo_1080x1080.png"
+    },
+    {
+      "title": "Nuvio Alpha 0.4.0",
+      "identifier": "com-nuvio-app-1-0-0-b1-iphone-ipad",
+      "caption": "Local providers, iPad video fixes, reduced memory usage, and reduced heating",
+      "tintColor": "4F7CFF",
+      "date": "2025-07-27",
+      "notify": false,
+      "appID": "com.nuvio.app",
       "imageURL": "https://nuvio.tv/assets/Logo_1080x1080.png"
     }
   ]

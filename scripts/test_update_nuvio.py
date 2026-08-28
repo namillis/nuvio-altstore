@@ -37,6 +37,25 @@ class UpdateNuvioTest(unittest.TestCase):
         updater._validate_cross_file(self.source, self.readme)
         self.assertEqual(self.readme, updater._update_readme(self.readme, self.source))
 
+    def test_legacy_alpha_entry_matches_verified_ipa(self) -> None:
+        matches = [
+            app for app in self.source["apps"] if app["bundleIdentifier"] == "com.nuvio.app"
+        ]
+
+        self.assertEqual(1, len(matches))
+        app = matches[0]
+        latest = app["versions"][0]
+        self.assertEqual("Nuvio Alpha (Legacy)", app["name"])
+        self.assertEqual("1.0.0", latest["version"])
+        self.assertEqual("1", latest["buildVersion"])
+        self.assertEqual("15.1", latest["minOSVersion"])
+        self.assertEqual(33142764, latest["size"])
+        self.assertEqual(
+            "9b3ff846d441b53db42812d39f63901a9072e96ae7fc88f26796ce6c8f1ca394",
+            latest["sha256"],
+        )
+        self.assertIn("/0.4.0-alpha/Alpha4.ipa", latest["downloadURL"])
+
     def test_release_notes_are_normalized_from_github_markdown(self) -> None:
         body = (
             "## What's Changed\r\n\r\n"
