@@ -3,7 +3,7 @@
 [![One-tap install](https://img.shields.io/badge/Install-one--tap-4F7CFF)](https://namillis.github.io/nuvio-altstore/)
 [![AltStore source](https://img.shields.io/badge/AltStore-source-4F7CFF)](https://namillis.github.io/nuvio-altstore/nuvio-ios.json)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-2ea44f)](https://namillis.github.io/nuvio-altstore/)
-[![Update source](https://github.com/namillis/nuvio-altstore/actions/workflows/update-source.yml/badge.svg)](https://github.com/namillis/nuvio-altstore/actions/workflows/update-source.yml)
+[![Update source](https://github.com/namillis/nuvio-altstore/actions/workflows/source-updater.yml/badge.svg)](https://github.com/namillis/nuvio-altstore/actions/workflows/source-updater.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![iOS](https://img.shields.io/badge/iOS-Nuvio-4F7CFF)](nuvio-ios.json)
 
@@ -68,9 +68,9 @@ The source uses version-pinned GitHub release URLs so a future release cannot si
 
 ## Automatic updates
 
-The [Update Nuvio source](https://github.com/namillis/nuvio-altstore/actions/workflows/update-source.yml) workflow runs hourly at minute 23 and can also be started manually. It scans recent stable Nuvio releases for the newest IPA, skipping Android-only releases and prereleases. When an IPA changes, it verifies the embedded metadata and SHA-256, then updates the source JSON and README in one atomic commit.
+A GitHub App-authenticated [15-minute dispatch loop](https://github.com/namillis/playtorrio-altstore/actions/workflows/update-loop.yml) starts the [Update Nuvio source](https://github.com/namillis/nuvio-altstore/actions/workflows/source-updater.yml) workflow. It scans recent stable Nuvio releases for the newest IPA, skipping Android-only releases and prereleases. When an IPA changes, it verifies the embedded metadata and SHA-256, then updates the source JSON and README in one atomic commit.
 
-The same workflow deploys the verified files to GitHub Pages. It uses the repository's built-in `GITHUB_TOKEN`; no personal access token or external machine is required.
+The updater deploys the verified files to GitHub Pages using the repository's built-in `GITHUB_TOKEN`. The dispatch loop uses a short-lived GitHub App token scoped to Actions dispatch; no personal access token or external machine is required.
 
 ## Live endpoints
 
@@ -88,7 +88,7 @@ GitHub Pages serves the source with an `application/json` content type. Deployme
 
 ```text
 nuvio-altstore/
-├── .github/workflows/update-source.yml
+├── .github/workflows/source-updater.yml
 ├── scripts/
 │   ├── test_update_nuvio.py
 │   └── update_nuvio.py

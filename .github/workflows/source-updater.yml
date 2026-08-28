@@ -1,9 +1,19 @@
 name: Update Nuvio source
 
 on:
-  schedule:
-    - cron: "23 * * * *"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/source-updater.yml"
+      - "install.html"
+      - "nuvio-ios.json"
   workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: "Deploy Pages even when the source is already current"
+        required: false
+        type: boolean
+        default: false
   repository_dispatch:
     types: [nuvio-release]
 
@@ -40,8 +50,9 @@ jobs:
         env:
           CHANGED: ${{ steps.update.outputs.changed }}
           EVENT_NAME: ${{ github.event_name }}
+          FORCE_DEPLOY: ${{ inputs.force_deploy }}
         run: |
-          if [[ "$CHANGED" == "true" || "$EVENT_NAME" == "workflow_dispatch" ]]; then
+          if [[ "$CHANGED" == "true" || "$EVENT_NAME" == "push" || "$FORCE_DEPLOY" == "true" ]]; then
             echo "deploy=true" >> "$GITHUB_OUTPUT"
           else
             echo "deploy=false" >> "$GITHUB_OUTPUT"
