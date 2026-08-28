@@ -3,8 +3,8 @@
   "identifier": "community.nuvio.ios",
   "subtitle": "A free, open-source media app — unofficial AltStore-compatible source for iOS and iPadOS.",
   "description": "An unofficial AltStore source for Nuvio on iPhone and iPad. Nuvio turns your own media sources into a library with artwork, ratings, subtitles, and synchronized progress. IPAs are served directly from NuvioMedia's public GitHub releases. This community source is not affiliated with or supported by NuvioMedia.",
-  "iconURL": "https://nuvio.tv/assets/Logo_1080x1080.png",
-  "headerURL": "https://nuvio.tv/assets/nuvio-social-preview.png",
+  "iconURL": "https://raw.githubusercontent.com/NuvioMedia/NuvioMobile/cmp-rewrite/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/app-icon-1024.png",
+  "headerURL": "https://raw.githubusercontent.com/NuvioMedia/NuvioMobile/cmp-rewrite/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/app-icon-1024.png",
   "website": "https://nuvio.tv/",
   "tintColor": "#4F7CFF",
   "sourceURL": "https://namillis.github.io/nuvio-altstore/nuvio-ios.json",
@@ -19,7 +19,7 @@
       "developerName": "NuvioMedia",
       "subtitle": "Bring your own sources.",
       "localizedDescription": "Nuvio is a free, open-source media app for your phone, desktop, and TV. Bring your own sources and turn them into a library with artwork, ratings, subtitles, and your place saved on every screen. Requires iPhone or iPad with iOS 16.1 or later.",
-      "iconURL": "https://nuvio.tv/assets/Logo_1080x1080.png",
+      "iconURL": "https://raw.githubusercontent.com/NuvioMedia/NuvioMobile/cmp-rewrite/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/app-icon-1024.png",
       "tintColor": "#4F7CFF",
       "category": "entertainment",
       "appPermissions": {
@@ -55,7 +55,7 @@
       "date": "2026-08-26",
       "notify": false,
       "appID": "com.nuvio.media",
-      "imageURL": "https://nuvio.tv/assets/Logo_1080x1080.png"
+      "imageURL": "https://raw.githubusercontent.com/NuvioMedia/NuvioMobile/cmp-rewrite/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/app-icon-1024.png"
     }
   ]
 }
