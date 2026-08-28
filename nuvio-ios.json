@@ -1,0 +1,61 @@
+{
+  "name": "Nuvio iOS (Unofficial AltStore Source)",
+  "identifier": "community.nuvio.ios",
+  "subtitle": "A free, open-source media app — unofficial AltStore-compatible source for iOS and iPadOS.",
+  "description": "An unofficial AltStore source for Nuvio on iPhone and iPad. Nuvio turns your own media sources into a library with artwork, ratings, subtitles, and synchronized progress. IPAs are served directly from NuvioMedia's public GitHub releases. This community source is not affiliated with or supported by NuvioMedia.",
+  "iconURL": "https://nuvio.tv/assets/Logo_1080x1080.png",
+  "headerURL": "https://nuvio.tv/assets/nuvio-social-preview.png",
+  "website": "https://nuvio.tv/",
+  "tintColor": "#4F7CFF",
+  "sourceURL": "https://namillis.github.io/nuvio-altstore/nuvio-ios.json",
+  "userInfo": {
+    "name": "Unofficial AltStore Source",
+    "role": "Community Mirror"
+  },
+  "apps": [
+    {
+      "name": "Nuvio",
+      "bundleIdentifier": "com.nuvio.media",
+      "developerName": "NuvioMedia",
+      "subtitle": "Bring your own sources.",
+      "localizedDescription": "Nuvio is a free, open-source media app for your phone, desktop, and TV. Bring your own sources and turn them into a library with artwork, ratings, subtitles, and your place saved on every screen. Requires iPhone or iPad with iOS 16.1 or later.",
+      "iconURL": "https://nuvio.tv/assets/Logo_1080x1080.png",
+      "tintColor": "#4F7CFF",
+      "category": "entertainment",
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "versions": [
+        {
+          "version": "0.4.11",
+          "buildVersion": "115",
+          "date": "2026-08-26",
+          "localizedDescription": "feat(details): add tappable expandable descriptions\nfix: Simkl anime type classification and landscape poster aspect ratio (#1786)\nfix(details): reset episode position when switching seasons\nfix(search): persist discover catalog selection\nfix(ios): correct launch screen configuration\nfix(player): make subtitle aggregation multiplatform\nRespect corner radius for trailers and episodes (#1784)\ni18n(el): add missing Greek translations (#1783)\nfix(catalog): preserve scroll position after details\nfix: address mobile crash clusters (NUVIO-MOBILE-4 NUVIO-MOBILE-QK NUVIO-MOBILE-FZ)\nLatest strings added to the Bulgarian translation (#1779)\nfix: per-episode rating from addon metadata is never parsed (#1776)\nfeat(player): port sidecar addon subtitles, fix selection state, and parallelize fetching (#1705)",
+          "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.11/nuvio-0.4.11-full-release.ipa",
+          "size": 51638510,
+          "sha256": "712e32aa5957c770a1e6769223769d1b56d0c9f957f369901190637f3cb49114",
+          "minOSVersion": "16.1"
+        }
+      ],
+      "version": "0.4.11",
+      "versionDate": "2026-08-26",
+      "versionDescription": "feat(details): add tappable expandable descriptions\nfix: Simkl anime type classification and landscape poster aspect ratio (#1786)\nfix(details): reset episode position when switching seasons\nfix(search): persist discover catalog selection\nfix(ios): correct launch screen configuration\nfix(player): make subtitle aggregation multiplatform\nRespect corner radius for trailers and episodes (#1784)\ni18n(el): add missing Greek translations (#1783)\nfix(catalog): preserve scroll position after details\nfix: address mobile crash clusters (NUVIO-MOBILE-4 NUVIO-MOBILE-QK NUVIO-MOBILE-FZ)\nLatest strings added to the Bulgarian translation (#1779)\nfix: per-episode rating from addon metadata is never parsed (#1776)\nfeat(player): port sidecar addon subtitles, fix selection state, and parallelize fetching (#1705)",
+      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.11/nuvio-0.4.11-full-release.ipa",
+      "size": 51638510,
+      "minOSVersion": "16.1"
+    }
+  ],
+  "news": [
+    {
+      "title": "Nuvio 0.4.11",
+      "identifier": "com-nuvio-media-0-4-11-b115-iphone-ipad",
+      "caption": "Expandable descriptions, iOS launch fixes, crash fixes, subtitle improvements, and catalog updates",
+      "tintColor": "4F7CFF",
+      "date": "2026-08-26",
+      "notify": false,
+      "appID": "com.nuvio.media",
+      "imageURL": "https://nuvio.tv/assets/Logo_1080x1080.png"
+    }
+  ]
+}

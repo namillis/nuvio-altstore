@@ -1,0 +1,89 @@
+name: Update Nuvio source
+
+on:
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+  repository_dispatch:
+    types: [nuvio-release]
+
+concurrency:
+  group: nuvio-source-update
+  cancel-in-progress: false
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: read
+    outputs:
+      deploy: ${{ steps.decision.outputs.deploy }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Run updater tests
+        run: python3 -m unittest discover -s scripts -p "test_*.py"
+
+      - name: Check upstream and update source
+        id: update
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/update_nuvio.py
+
+      - name: Decide whether to deploy Pages
+        id: decision
+        env:
+          CHANGED: ${{ steps.update.outputs.changed }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [[ "$CHANGED" == "true" || "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check out updated source
+        if: steps.update.outputs.changed == 'true'
+        env:
+          COMMIT_SHA: ${{ steps.update.outputs.commit_sha }}
+        run: |
+          git fetch --no-tags origin main
+          git checkout --detach "$COMMIT_SHA"
+
+      - name: Prepare Pages artifact
+        if: steps.decision.outputs.deploy == 'true'
+        run: |
+          mkdir _site
+          cp install.html _site/index.html
+          cp install.html nuvio-ios.json _site/
+
+      - name: Configure Pages
+        if: steps.decision.outputs.deploy == 'true'
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d
+
+      - name: Upload Pages artifact
+        if: steps.decision.outputs.deploy == 'true'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9
+        with:
+          path: _site
+
+  deploy:
+    needs: update
+    if: needs.update.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128

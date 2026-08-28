@@ -1,0 +1,972 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nuvio — Unofficial AltStore Source</title>
+  <meta name="description" content="Sideload Nuvio on iPhone and iPad with one-tap links for AltStore, SideStore, and LiveContainer." />
+  <meta name="theme-color" content="#070b14" />
+  <meta property="og:title" content="Nuvio — Unofficial AltStore Source" />
+  <meta property="og:description" content="Add verified Nuvio iOS releases to AltStore, SideStore, LiveContainer, and other signing apps." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://namillis.github.io/nuvio-altstore/" />
+  <meta property="og:image" content="https://nuvio.tv/assets/nuvio-social-preview.png" />
+  <link rel="canonical" href="https://namillis.github.io/nuvio-altstore/" />
+  <link rel="icon" href="https://nuvio.tv/assets/Logo_1080x1080.png" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #070b14;
+      --panel: #0e1627;
+      --panel-raised: #131e33;
+      --line: #263654;
+      --text: #f4f7ff;
+      --muted: #a6b3cc;
+      --faint: #71809d;
+      --blue: #4f7cff;
+      --blue-light: #91adff;
+      --blue-deep: #2946a8;
+      --cyan: #4fe0d0;
+      --amber: #f5bd62;
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-width: 320px;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(900px 520px at 92% -5%, rgba(79, 124, 255, .28), transparent 65%),
+        radial-gradient(700px 500px at -12% 48%, rgba(79, 224, 208, .12), transparent 65%),
+        var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .shell {
+      width: min(100% - 40px, 1040px);
+      margin: 0 auto;
+      padding-bottom: 72px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 15px;
+      font-weight: 750;
+      letter-spacing: -.01em;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      box-shadow: 0 8px 28px rgba(45, 82, 190, .45);
+    }
+
+    .github-link {
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 650;
+      text-decoration: none;
+      transition: border-color .15s ease, color .15s ease, background .15s ease;
+    }
+
+    .github-link:hover,
+    .github-link:focus-visible {
+      color: var(--text);
+      border-color: var(--blue);
+      background: rgba(79, 124, 255, .1);
+    }
+
+    .hero {
+      max-width: 760px;
+      padding: 64px 0 38px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding: 6px 12px;
+      color: var(--blue-light);
+      background: rgba(79, 124, 255, .1);
+      border: 1px solid rgba(145, 173, 255, .32);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 0 5px rgba(79, 224, 208, .12);
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(42px, 8vw, 70px);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    h1 span { color: var(--blue-light); }
+
+    .hero > p {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 19px);
+    }
+
+    .install-card {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+      gap: 28px;
+      padding: 30px;
+      background: linear-gradient(145deg, rgba(19, 30, 51, .98), rgba(9, 14, 25, .98));
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      box-shadow: 0 26px 80px rgba(0, 0, 0, .28);
+    }
+
+    .install-card::after {
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      right: -150px;
+      bottom: -190px;
+      content: "";
+      border-radius: 50%;
+      background: rgba(79, 124, 255, .16);
+      pointer-events: none;
+    }
+
+    .app-summary {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .app-heading {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .app-heading img {
+      width: 78px;
+      height: 78px;
+      flex: 0 0 auto;
+      border-radius: 20px;
+      box-shadow: 0 12px 34px rgba(45, 82, 190, .45);
+    }
+
+    .app-heading h2 {
+      margin: 0 0 3px;
+      font-size: 25px;
+      letter-spacing: -.025em;
+    }
+
+    .app-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .latest {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-bottom: 18px;
+    }
+
+    .version {
+      font-size: 31px;
+      font-weight: 820;
+      letter-spacing: -.035em;
+    }
+
+    .version-meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      padding: 5px 10px;
+      color: #d8e1f7;
+      background: rgba(255, 255, 255, .035);
+      border: 1px solid rgba(255, 255, 255, .075);
+      border-radius: 999px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .source-panel {
+      position: relative;
+      z-index: 1;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+      padding: 22px;
+      background: rgba(4, 8, 15, .52);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 18px;
+    }
+
+    .source-panel h3 {
+      margin: 0 0 4px;
+      font-size: 15px;
+    }
+
+    .source-panel > p {
+      margin: 0 0 16px;
+      color: var(--faint);
+      font-size: 12.5px;
+    }
+
+    .url-box {
+      display: flex;
+      min-width: 0;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .source-url {
+      min-width: 0;
+      flex: 1;
+      overflow-x: auto;
+      padding: 10px 11px;
+      color: var(--muted);
+      background: #070b14;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font: 11px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+
+    .copy-button {
+      flex: 0 0 auto;
+      padding: 0 13px;
+      color: var(--muted);
+      background: #070b14;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: color .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .copy-button:hover,
+    .copy-button:focus-visible {
+      color: var(--text);
+      border-color: var(--blue);
+    }
+
+    .copy-button.copied {
+      color: #062720;
+      background: var(--cyan);
+      border-color: var(--cyan);
+    }
+
+    .install-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+
+    .button {
+      display: block;
+      padding: 12px 10px;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+      border: 1px solid transparent;
+      border-radius: 11px;
+      font-size: 13.5px;
+      font-weight: 760;
+      text-align: center;
+      text-decoration: none;
+      transition: filter .15s ease, transform .1s ease;
+    }
+
+    .button.secondary {
+      color: var(--blue-light);
+      background: transparent;
+      border-color: rgba(145, 173, 255, .42);
+    }
+
+    .button.livecontainer { grid-column: 1 / -1; }
+    .button:hover, .button:focus-visible { filter: brightness(1.14); }
+    .button:active { transform: translateY(1px); }
+
+    .notice {
+      display: flex;
+      gap: 13px;
+      margin: 22px 0 0;
+      padding: 16px 18px;
+      color: var(--muted);
+      background: rgba(245, 189, 98, .07);
+      border: 1px solid rgba(245, 189, 98, .2);
+      border-radius: 15px;
+      font-size: 13.5px;
+    }
+
+    .notice strong { color: var(--amber); }
+    .apps-section { margin-top: 62px; }
+    .versions-section { margin-top: 58px; }
+    .section-heading { margin-bottom: 22px; }
+
+    .section-heading h2 {
+      margin: 0 0 5px;
+      font-size: 27px;
+      letter-spacing: -.03em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14.5px;
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .app-card {
+      min-width: 0;
+      padding: 22px;
+      background: linear-gradient(180deg, var(--panel-raised), var(--panel));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .app-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 15px;
+    }
+
+    .app-card h3 { margin: 0; font-size: 18px; }
+
+    .tag {
+      flex: 0 0 auto;
+      padding: 3px 9px;
+      color: var(--cyan);
+      border: 1px solid rgba(79, 224, 208, .35);
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .app-description {
+      margin: 0 0 17px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    .app-details {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 0;
+    }
+
+    .app-details div {
+      padding: 10px 11px;
+      background: rgba(0, 0, 0, .16);
+      border-radius: 10px;
+    }
+
+    .app-details dt {
+      color: var(--faint);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .app-details dd {
+      margin: 2px 0 0;
+      overflow: hidden;
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 650;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .table-shell {
+      overflow-x: auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+
+    th {
+      padding: 12px 15px;
+      color: var(--faint);
+      border-bottom: 1px solid var(--line);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 13px 15px;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:hover td { background: rgba(79, 124, 255, .055); }
+    .table-version { font-weight: 780; }
+    .dim { color: var(--muted); }
+
+    .notes-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0;
+      color: var(--text);
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 780;
+      text-align: left;
+    }
+
+    .notes-chevron {
+      display: inline-block;
+      width: 10px;
+      color: var(--blue-light);
+      transition: transform .15s ease;
+    }
+
+    .notes-toggle[aria-expanded="true"] .notes-chevron { transform: rotate(90deg); }
+    .release-notes-row[hidden] { display: none; }
+    .release-notes-row:hover td { background: transparent; }
+
+    .release-notes-row td {
+      padding: 0 15px 15px;
+      white-space: normal;
+    }
+
+    .release-notes {
+      max-width: 800px;
+      padding: 14px 16px;
+      color: var(--muted);
+      background: rgba(79, 124, 255, .07);
+      border: 1px solid rgba(145, 173, 255, .18);
+      border-radius: 11px;
+    }
+
+    .release-notes strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 12px;
+    }
+
+    .release-notes p {
+      margin: 0;
+      line-height: 1.55;
+      white-space: pre-line;
+    }
+
+    .release-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .release-link,
+    .download-link {
+      color: var(--blue-light);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .release-link:hover,
+    .release-link:focus-visible,
+    .download-link:hover,
+    .download-link:focus-visible { text-decoration: underline; }
+
+    .link-separator { color: var(--line); }
+
+    .loading,
+    .load-error {
+      padding: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .load-error { color: #ff9f9f; }
+
+    footer {
+      margin-top: 64px;
+      padding-top: 25px;
+      color: var(--faint);
+      border-top: 1px solid var(--line);
+      font-size: 12.5px;
+    }
+
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--blue-light); }
+
+    :focus-visible {
+      outline: 2px solid var(--blue-light);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 30px, 1040px); }
+      .hero { padding-top: 44px; }
+      .install-card { grid-template-columns: minmax(0, 1fr); padding: 23px; }
+      .source-panel { padding: 18px; }
+      .app-details { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .topbar { padding-top: 17px; }
+      .brand span { display: none; }
+      .hero { padding-top: 34px; }
+      .hero > p { font-size: 16px; }
+      .install-card { padding: 18px; border-radius: 20px; }
+      .app-heading { gap: 13px; }
+      .app-heading img { width: 64px; height: 64px; border-radius: 17px; }
+      .app-heading h2 { font-size: 21px; }
+      .install-buttons { grid-template-columns: minmax(0, 1fr); }
+      .button.livecontainer { grid-column: auto; }
+      .url-box { flex-direction: column; }
+      .copy-button { min-height: 42px; }
+      .app-details { grid-template-columns: minmax(0, 1fr); }
+      .notice { padding: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <img src="https://nuvio.tv/assets/Logo_1080x1080.png" alt="Nuvio icon" />
+        <span>nuvio-altstore</span>
+      </div>
+      <a class="github-link" href="https://github.com/namillis/nuvio-altstore" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </header>
+
+    <section class="hero">
+      <div class="badge"><span class="status-dot"></span> Unofficial community source</div>
+      <h1>Nuvio,<br /><span>sideloaded.</span></h1>
+      <p>Bring your own sources and turn them into a polished media library with artwork, ratings, subtitles, and synchronized progress.</p>
+    </section>
+
+    <section class="install-card" aria-labelledby="install-heading">
+      <div class="app-summary">
+        <div class="app-heading">
+          <img src="https://nuvio.tv/assets/Logo_1080x1080.png" alt="" />
+          <div>
+            <h2 id="install-heading">Nuvio</h2>
+            <p>iPhone &amp; iPad · iOS 16.1+</p>
+          </div>
+        </div>
+        <div class="latest" aria-live="polite">
+          <span class="version" id="latest-version">v0.4.11</span>
+          <span class="version-meta" id="latest-meta">build 115 · Aug 26, 2026</span>
+        </div>
+        <ul class="feature-list" aria-label="Key features">
+          <li>Bring your own sources</li>
+          <li>Artwork &amp; ratings</li>
+          <li>Subtitles</li>
+          <li>Synced progress</li>
+          <li>iPhone &amp; iPad</li>
+        </ul>
+      </div>
+
+      <div class="source-panel">
+        <h3>Add the source</h3>
+        <p>Open this page on the device where your signing app is installed.</p>
+        <div class="url-box">
+          <div class="source-url" id="source-url"></div>
+          <button class="copy-button" id="copy-source" type="button">Copy</button>
+        </div>
+        <div class="install-buttons">
+          <a class="button" id="altstore-link" href="#">Add to AltStore</a>
+          <a class="button secondary" id="sidestore-link" href="#">Add to SideStore</a>
+          <a class="button secondary livecontainer" id="livecontainer-link" href="#">Add to LiveContainer</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="notice">
+      <span aria-hidden="true">i</span>
+      <div><strong>iOS assets are release-dependent.</strong> Most upstream Nuvio releases contain Android packages only. This source automatically keeps the newest stable release that includes a verified IPA.</div>
+    </div>
+
+    <section class="apps-section" aria-labelledby="apps-heading">
+      <div class="section-heading">
+        <h2 id="apps-heading">App details</h2>
+        <p>Loaded live from the source metadata.</p>
+      </div>
+      <div class="app-grid" id="app-grid">
+        <div class="loading">Loading app details...</div>
+      </div>
+    </section>
+
+    <section class="versions-section" aria-labelledby="versions-heading">
+      <div class="section-heading">
+        <h2 id="versions-heading">Verified releases</h2>
+        <p>Each IPA links directly to NuvioMobile's GitHub release. Select a version to expand its release notes.</p>
+      </div>
+      <div class="table-shell">
+        <table>
+          <thead>
+            <tr>
+              <th>App</th>
+              <th>Version</th>
+              <th>Build</th>
+              <th>Date</th>
+              <th>Minimum iOS</th>
+              <th>Size</th>
+              <th>Links</th>
+            </tr>
+          </thead>
+          <tbody id="version-rows">
+            <tr><td colspan="7" class="loading">Loading versions...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <p>Unofficial community project — not affiliated with NuvioMedia. IPAs are served directly by NuvioMobile's public GitHub releases; this repository publishes metadata only.</p>
+      <p>Apps signed with a free Apple ID normally expire after 7 days. <a href="https://nuvio.tv/" target="_blank" rel="noopener noreferrer">Official Nuvio website</a> · <a href="https://github.com/namillis/nuvio-altstore" target="_blank" rel="noopener noreferrer">Source and issues</a></p>
+    </footer>
+  </main>
+
+  <script>
+    var SOURCE_URL = "https://namillis.github.io/nuvio-altstore/nuvio-ios.json";
+    var sourceNode = document.getElementById("source-url");
+    var encodedSource = encodeURIComponent(SOURCE_URL);
+
+    sourceNode.textContent = SOURCE_URL;
+    document.getElementById("altstore-link").href = "altstore://source?url=" + encodedSource;
+    document.getElementById("sidestore-link").href = "sidestore://source?url=" + encodedSource;
+    document.getElementById("livecontainer-link").href = "livecontainer://source?url=" + encodedSource;
+
+    function copySource() {
+      var button = document.getElementById("copy-source");
+      var completed = function () {
+        button.textContent = "Copied";
+        button.classList.add("copied");
+        window.setTimeout(function () {
+          button.textContent = "Copy";
+          button.classList.remove("copied");
+        }, 1500);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(SOURCE_URL).then(completed);
+        return;
+      }
+
+      var input = document.createElement("textarea");
+      input.value = SOURCE_URL;
+      input.setAttribute("readonly", "");
+      input.style.position = "fixed";
+      input.style.opacity = "0";
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand("copy");
+      input.remove();
+      completed();
+    }
+
+    function formatDate(value) {
+      if (!value) return "—";
+      var date = new Date(value + "T00:00:00Z");
+      if (Number.isNaN(date.getTime())) return value;
+      return date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+    }
+
+    function formatSize(bytes) {
+      return bytes > 0 ? (bytes / 1048576).toFixed(1) + " MB" : "—";
+    }
+
+    function getReleaseURL(downloadURL) {
+      try {
+        var url = new URL(downloadURL);
+        var match = url.pathname.match(/^\/([^/]+)\/([^/]+)\/releases\/download\/([^/]+)\//);
+        if (url.protocol !== "https:" || url.hostname !== "github.com" || !match) return "";
+        return url.origin + "/" + match[1] + "/" + match[2] + "/releases/tag/" + match[3];
+      } catch (error) {
+        return "";
+      }
+    }
+
+    function addDetail(list, label, value) {
+      var wrapper = document.createElement("div");
+      var term = document.createElement("dt");
+      var description = document.createElement("dd");
+      term.textContent = label;
+      description.textContent = value;
+      description.title = value;
+      wrapper.appendChild(term);
+      wrapper.appendChild(description);
+      list.appendChild(wrapper);
+    }
+
+    function renderApps(apps) {
+      var grid = document.getElementById("app-grid");
+      grid.textContent = "";
+
+      apps.forEach(function (app) {
+        var card = document.createElement("article");
+        card.className = "app-card";
+
+        var top = document.createElement("div");
+        top.className = "app-card-top";
+        var heading = document.createElement("h3");
+        heading.textContent = app.name || "Nuvio";
+        var tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = "Current";
+        top.appendChild(heading);
+        top.appendChild(tag);
+
+        var description = document.createElement("p");
+        description.className = "app-description";
+        description.textContent = app.localizedDescription || app.subtitle || "";
+
+        var details = document.createElement("dl");
+        details.className = "app-details";
+        addDetail(details, "Bundle ID", app.bundleIdentifier || "—");
+        addDetail(details, "Latest", app.version || "—");
+        addDetail(details, "Minimum iOS", (app.minOSVersion || "—") + (app.minOSVersion ? "+" : ""));
+        addDetail(details, "Releases", String((app.versions || []).length));
+
+        card.appendChild(top);
+        card.appendChild(description);
+        card.appendChild(details);
+        grid.appendChild(card);
+      });
+    }
+
+    function renderVersions(apps) {
+      var body = document.getElementById("version-rows");
+      var versions = [];
+      body.textContent = "";
+
+      apps.forEach(function (app) {
+        (app.versions || []).forEach(function (version) {
+          versions.push({ app: app, version: version });
+        });
+      });
+
+      versions.sort(function (left, right) {
+        return String(right.version.date || "").localeCompare(String(left.version.date || ""));
+      });
+
+      versions.forEach(function (entry, releaseIndex) {
+        var row = document.createElement("tr");
+        var notes = String(entry.version.localizedDescription || "").trim();
+        var notesId = "release-notes-" + releaseIndex;
+        var toggle = null;
+        var values = [
+          entry.app.name || "Nuvio",
+          entry.version.version || "—",
+          entry.version.buildVersion || "—",
+          formatDate(entry.version.date),
+          (entry.version.minOSVersion || "—") + (entry.version.minOSVersion ? "+" : ""),
+          formatSize(entry.version.size)
+        ];
+
+        values.forEach(function (value, columnIndex) {
+          var cell = document.createElement("td");
+          cell.className = columnIndex === 1 ? "table-version" : "dim";
+
+          if (columnIndex === 1 && notes) {
+            toggle = document.createElement("button");
+            toggle.className = "notes-toggle";
+            toggle.type = "button";
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.setAttribute("aria-controls", notesId);
+
+            var chevron = document.createElement("span");
+            chevron.className = "notes-chevron";
+            chevron.setAttribute("aria-hidden", "true");
+            chevron.textContent = ">";
+
+            var label = document.createElement("span");
+            label.textContent = value;
+            toggle.appendChild(chevron);
+            toggle.appendChild(label);
+            cell.appendChild(toggle);
+          } else {
+            cell.textContent = value;
+          }
+          row.appendChild(cell);
+        });
+
+        var downloadCell = document.createElement("td");
+        var links = document.createElement("div");
+        var releaseURL = getReleaseURL(entry.version.downloadURL);
+        links.className = "release-links";
+
+        if (releaseURL) {
+          var release = document.createElement("a");
+          var separator = document.createElement("span");
+          release.className = "release-link";
+          release.href = releaseURL;
+          release.target = "_blank";
+          release.rel = "noopener noreferrer";
+          release.textContent = "Release";
+          release.setAttribute("aria-label", "View Nuvio " + entry.version.version + " release on GitHub");
+          separator.className = "link-separator";
+          separator.setAttribute("aria-hidden", "true");
+          separator.textContent = "·";
+          links.appendChild(release);
+          links.appendChild(separator);
+        }
+
+        var download = document.createElement("a");
+        download.className = "download-link";
+        download.href = entry.version.downloadURL;
+        download.target = "_blank";
+        download.rel = "noopener noreferrer";
+        download.textContent = "IPA";
+        download.setAttribute("aria-label", "Download Nuvio " + entry.version.version + " IPA");
+        links.appendChild(download);
+        downloadCell.appendChild(links);
+        row.appendChild(downloadCell);
+        body.appendChild(row);
+
+        if (notes && toggle) {
+          var notesRow = document.createElement("tr");
+          var notesCell = document.createElement("td");
+          var notesPanel = document.createElement("div");
+          var notesTitle = document.createElement("strong");
+          var notesText = document.createElement("p");
+
+          notesRow.className = "release-notes-row";
+          notesRow.id = notesId;
+          notesRow.hidden = true;
+          notesCell.colSpan = 7;
+          notesPanel.className = "release-notes";
+          notesTitle.textContent = "What's new in Nuvio " + entry.version.version;
+          notesText.textContent = notes;
+          notesPanel.appendChild(notesTitle);
+          notesPanel.appendChild(notesText);
+          notesCell.appendChild(notesPanel);
+          notesRow.appendChild(notesCell);
+          body.appendChild(notesRow);
+
+          toggle.addEventListener("click", function () {
+            var expanded = toggle.getAttribute("aria-expanded") === "true";
+            toggle.setAttribute("aria-expanded", String(!expanded));
+            notesRow.hidden = expanded;
+          });
+        }
+      });
+    }
+
+    function showLoadError() {
+      var grid = document.getElementById("app-grid");
+      var body = document.getElementById("version-rows");
+      grid.innerHTML = '<div class="load-error">Could not load the source metadata. The install buttons and source URL above still work.</div>';
+      body.innerHTML = '<tr><td colspan="7" class="load-error">Could not load release data. View the JSON source on GitHub.</td></tr>';
+    }
+
+    document.getElementById("copy-source").addEventListener("click", copySource);
+
+    fetch(SOURCE_URL, { cache: "no-store" })
+      .then(function (response) {
+        if (!response.ok) throw new Error("Source request failed");
+        return response.json();
+      })
+      .then(function (source) {
+        var apps = source.apps || [];
+        if (!apps.length) throw new Error("Source contains no apps");
+
+        var current = apps[0];
+        var latest = (current.versions || [])[0];
+        if (latest) {
+          document.getElementById("latest-version").textContent = "v" + latest.version;
+          document.getElementById("latest-meta").textContent = "build " + latest.buildVersion + " · " + formatDate(latest.date) + " · " + formatSize(latest.size);
+        }
+
+        renderApps(apps);
+        renderVersions(apps);
+      })
+      .catch(showLoadError);
+  </script>
+</body>
+</html>
