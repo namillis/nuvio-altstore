@@ -68,7 +68,7 @@ The source uses version-pinned GitHub release URLs so a future release cannot si
 
 ## Automatic updates
 
-A GitHub App-authenticated [15-minute dispatch loop](https://github.com/namillis/playtorrio-altstore/actions/workflows/update-loop.yml) starts the [Update Nuvio source](https://github.com/namillis/nuvio-altstore/actions/workflows/source-updater.yml) workflow. It scans recent stable Nuvio releases for the newest IPA, skipping Android-only releases and prereleases. When an IPA changes, it verifies the embedded metadata and SHA-256, then updates the source JSON and README in one atomic commit.
+A GitHub App-authenticated [hourly dispatch loop](https://github.com/namillis/playtorrio-altstore/actions/workflows/update-loop.yml) starts the [Update Nuvio source](https://github.com/namillis/nuvio-altstore/actions/workflows/source-updater.yml) workflow. It scans recent stable Nuvio releases for the newest IPA, skipping Android-only releases and prereleases. When an IPA changes, it verifies the embedded metadata and SHA-256, then updates the source JSON and README in one atomic commit.
 
 The updater deploys the verified files to GitHub Pages using the repository's built-in `GITHUB_TOKEN`. The dispatch loop uses a short-lived GitHub App token scoped to Actions dispatch; no personal access token or external machine is required.
 
