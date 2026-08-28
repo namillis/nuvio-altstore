@@ -51,7 +51,7 @@ Any signing app that consumes the standard AltStore source format can use this r
 - **[Sideloadly](https://sideloadly.io/)** — a desktop-based sideloader with source support
 - **[LiveContainer](https://github.com/LiveContainer/LiveContainer)** — an app launcher that imports and runs compatible IPA files inside a container
 
-Apps that accept a source URL can use the hosted JSON directly. LiveContainer can open the source through its `livecontainer://source` URL scheme; its own compatibility limitations still apply.
+Apps that accept a source URL can use the hosted JSON directly.
 
 ## Metadata verification
 
