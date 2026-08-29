@@ -28,6 +28,16 @@
       },
       "versions": [
         {
+          "version": "0.4.12",
+          "buildVersion": "116",
+          "date": "2026-08-29",
+          "localizedDescription": "fix(tmdb): use multiplatform map insertion\nfeat(store): automate sideload source updates\ni18n(el): translate sign-in with link strings (#1813)\nfeat(auth): add six-character login codes\nPort NuvioTV fixes: YouTube extractor, trailer language, scrobble guard, aggregate credits (#1795)\nfallback CJK cast names and filmography titles to English/Romaji (#1785)\nfix(player): keep controls hidden on playback start\nfix(release): group notes by pull request\nfix(release): target repository explicitly",
+          "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.12/nuvio-0.4.12-full-release.ipa",
+          "size": 51718448,
+          "sha256": "eefce854675c29c86c381c0ecc34082dc57ef24bfeec78309661a2e082b9de2b",
+          "minOSVersion": "16.1"
+        },
+        {
           "version": "0.4.11",
           "buildVersion": "115",
           "date": "2026-08-26",
@@ -38,15 +48,25 @@
           "minOSVersion": "16.1"
         }
       ],
-      "version": "0.4.11",
-      "versionDate": "2026-08-26",
-      "versionDescription": "feat(details): add tappable expandable descriptions\nfix: Simkl anime type classification and landscape poster aspect ratio (#1786)\nfix(details): reset episode position when switching seasons\nfix(search): persist discover catalog selection\nfix(ios): correct launch screen configuration\nfix(player): make subtitle aggregation multiplatform\nRespect corner radius for trailers and episodes (#1784)\ni18n(el): add missing Greek translations (#1783)\nfix(catalog): preserve scroll position after details\nfix: address mobile crash clusters (NUVIO-MOBILE-4 NUVIO-MOBILE-QK NUVIO-MOBILE-FZ)\nLatest strings added to the Bulgarian translation (#1779)\nfix: per-episode rating from addon metadata is never parsed (#1776)\nfeat(player): port sidecar addon subtitles, fix selection state, and parallelize fetching (#1705)",
-      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.11/nuvio-0.4.11-full-release.ipa",
-      "size": 51638510,
+      "version": "0.4.12",
+      "versionDate": "2026-08-29",
+      "versionDescription": "fix(tmdb): use multiplatform map insertion\nfeat(store): automate sideload source updates\ni18n(el): translate sign-in with link strings (#1813)\nfeat(auth): add six-character login codes\nPort NuvioTV fixes: YouTube extractor, trailer language, scrobble guard, aggregate credits (#1795)\nfallback CJK cast names and filmography titles to English/Romaji (#1785)\nfix(player): keep controls hidden on playback start\nfix(release): group notes by pull request\nfix(release): target repository explicitly",
+      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.12/nuvio-0.4.12-full-release.ipa",
+      "size": 51718448,
       "minOSVersion": "16.1"
     }
   ],
   "news": [
+    {
+      "title": "Nuvio 0.4.12",
+      "identifier": "com-nuvio-media-0-4-12-b116-iphone-ipad",
+      "caption": "fix(tmdb): use multiplatform map insertion · feat(store): automate sideload source updates · i18n(el): translate sign-in with link strings (#1813) · feat(auth): add six-characte...",
+      "tintColor": "4F7CFF",
+      "date": "2026-08-29",
+      "notify": false,
+      "appID": "com.nuvio.media",
+      "imageURL": "https://raw.githubusercontent.com/NuvioMedia/NuvioMobile/cmp-rewrite/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/app-icon-1024.png"
+    },
     {
       "title": "Nuvio 0.4.11",
       "identifier": "com-nuvio-media-0-4-11-b115-iphone-ipad",
