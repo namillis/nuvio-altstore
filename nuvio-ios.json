@@ -28,6 +28,16 @@
       },
       "versions": [
         {
+          "version": "0.4.13",
+          "buildVersion": "117",
+          "date": "2026-08-30",
+          "localizedDescription": "feat(details): parse addon certifications\nfix(details): parse addon season posters\nfix(ui): handle delayed addon content states\nfix(android): adjust launcher icon scale\nfeat(player): apply member gradients to player accents\nfix(player): reset subtitle selection on source change (#1812)",
+          "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.13/nuvio-0.4.13-full-release.ipa",
+          "size": 51726937,
+          "sha256": "1e4458b0613c6e827459f02b6922d2c06e0e246624a097dac0a80bfc1dfb7c5a",
+          "minOSVersion": "16.1"
+        },
+        {
           "version": "0.4.12",
           "buildVersion": "116",
           "date": "2026-08-29",
@@ -48,15 +58,25 @@
           "minOSVersion": "16.1"
         }
       ],
-      "version": "0.4.12",
-      "versionDate": "2026-08-29",
-      "versionDescription": "fix(tmdb): use multiplatform map insertion\nfeat(store): automate sideload source updates\ni18n(el): translate sign-in with link strings (#1813)\nfeat(auth): add six-character login codes\nPort NuvioTV fixes: YouTube extractor, trailer language, scrobble guard, aggregate credits (#1795)\nfallback CJK cast names and filmography titles to English/Romaji (#1785)\nfix(player): keep controls hidden on playback start\nfix(release): group notes by pull request\nfix(release): target repository explicitly",
-      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.12/nuvio-0.4.12-full-release.ipa",
-      "size": 51718448,
+      "version": "0.4.13",
+      "versionDate": "2026-08-30",
+      "versionDescription": "feat(details): parse addon certifications\nfix(details): parse addon season posters\nfix(ui): handle delayed addon content states\nfix(android): adjust launcher icon scale\nfeat(player): apply member gradients to player accents\nfix(player): reset subtitle selection on source change (#1812)",
+      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.13/nuvio-0.4.13-full-release.ipa",
+      "size": 51726937,
       "minOSVersion": "16.1"
     }
   ],
   "news": [
+    {
+      "title": "Nuvio 0.4.13",
+      "identifier": "com-nuvio-media-0-4-13-b117-iphone-ipad",
+      "caption": "feat(details): parse addon certifications · fix(details): parse addon season posters · fix(ui): handle delayed addon content states · fix(android): adjust launcher icon scale ·...",
+      "tintColor": "4F7CFF",
+      "date": "2026-08-30",
+      "notify": false,
+      "appID": "com.nuvio.media",
+      "imageURL": "https://raw.githubusercontent.com/NuvioMedia/NuvioMobile/cmp-rewrite/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/app-icon-1024.png"
+    },
     {
       "title": "Nuvio 0.4.12",
       "identifier": "com-nuvio-media-0-4-12-b116-iphone-ipad",
