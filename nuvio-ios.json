@@ -28,6 +28,16 @@
       },
       "versions": [
         {
+          "version": "0.4.14",
+          "buildVersion": "118",
+          "date": "2026-09-05",
+          "localizedDescription": "fix(player): original audio language preference\nfix(player): allow minimum device brightness\nuse Android User-Agent so IPTV DASH streams do not 403 (#1863)\nfeat: updated Spanish string resource file for application localization (#1861)\nfix(player): align mobile control icons with tv\ni18n(el): translate delayed addon content state strings (#1851)\nfix(streams): honor autoplay source loading scope\nUpdated BG translation and fixes with later versiond (#1838)\nfix(player): persist next episode dismissal\nUse Simkl for anime ID resolution in skip-intro (replaces ARM) (#1836)\nfix(details): map addon specials season posters\nfix(details): optimize large vertical episode lists (#1835)\nfix(updater): apply theme gradient to download progress\nfix(player): keep subtitle picker stable for duplicate tracks (#1800)",
+          "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.14/nuvio-0.4.14-full-release.ipa",
+          "size": 51787331,
+          "sha256": "969974f82a0a2ebe84354bccda98b364701d4651c97cbccbb737e86c5280cea9",
+          "minOSVersion": "16.1"
+        },
+        {
           "version": "0.4.13",
           "buildVersion": "117",
           "date": "2026-08-30",
@@ -58,15 +68,25 @@
           "minOSVersion": "16.1"
         }
       ],
-      "version": "0.4.13",
-      "versionDate": "2026-08-30",
-      "versionDescription": "feat(details): parse addon certifications\nfix(details): parse addon season posters\nfix(ui): handle delayed addon content states\nfix(android): adjust launcher icon scale\nfeat(player): apply member gradients to player accents\nfix(player): reset subtitle selection on source change (#1812)",
-      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.13/nuvio-0.4.13-full-release.ipa",
-      "size": 51726937,
+      "version": "0.4.14",
+      "versionDate": "2026-09-05",
+      "versionDescription": "fix(player): original audio language preference\nfix(player): allow minimum device brightness\nuse Android User-Agent so IPTV DASH streams do not 403 (#1863)\nfeat: updated Spanish string resource file for application localization (#1861)\nfix(player): align mobile control icons with tv\ni18n(el): translate delayed addon content state strings (#1851)\nfix(streams): honor autoplay source loading scope\nUpdated BG translation and fixes with later versiond (#1838)\nfix(player): persist next episode dismissal\nUse Simkl for anime ID resolution in skip-intro (replaces ARM) (#1836)\nfix(details): map addon specials season posters\nfix(details): optimize large vertical episode lists (#1835)\nfix(updater): apply theme gradient to download progress\nfix(player): keep subtitle picker stable for duplicate tracks (#1800)",
+      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.14/nuvio-0.4.14-full-release.ipa",
+      "size": 51787331,
       "minOSVersion": "16.1"
     }
   ],
   "news": [
+    {
+      "title": "Nuvio 0.4.14",
+      "identifier": "com-nuvio-media-0-4-14-b118-iphone-ipad",
+      "caption": "fix(player): original audio language preference · fix(player): allow minimum device brightness · use Android User-Agent so IPTV DASH streams do not 403 (#1863) · feat: updated S...",
+      "tintColor": "4F7CFF",
+      "date": "2026-09-05",
+      "notify": false,
+      "appID": "com.nuvio.media",
+      "imageURL": "https://raw.githubusercontent.com/NuvioMedia/NuvioMobile/cmp-rewrite/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/app-icon-1024.png"
+    },
     {
       "title": "Nuvio 0.4.13",
       "identifier": "com-nuvio-media-0-4-13-b117-iphone-ipad",
