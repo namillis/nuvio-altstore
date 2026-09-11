@@ -28,6 +28,16 @@
       },
       "versions": [
         {
+          "version": "0.4.16",
+          "buildVersion": "121",
+          "date": "2026-09-11",
+          "localizedDescription": "fix(home): settle hero carousel when returning\nfix(settings): require Trakt progress for continue watching window\nperf(ui): replace compottie spinner with native drawing\nfeat(navigation): refine tablet bar and transition defaults\nfeat(navigation): add reactive bottom bar glow\nfeat(navigation): add shared blur transition\nfeat(posters): lift original cards in zoom overlay\nfeat(navigation): update bottom tab animation\nperf(android): add root navigation baseline profile\nfix(settings): defer search indexing until needed\nMerged English and Dutch strings.xml and translated all remaining English text into Dutch. (#1911)\ni18n(el): complete and tidy up Greek translations (#1910)\nfix(ci): increase iOS release timeout\ni18n(vi): full Vietnamese localization refresh for Mobile (#1883)",
+          "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.16/nuvio-0.4.16-full-release.ipa",
+          "size": 51012561,
+          "sha256": "806327fab50b9565b9681bdf34b744155e57d53c5dc41dc6a7cad16108ea774a",
+          "minOSVersion": "16.1"
+        },
+        {
           "version": "0.4.15",
           "buildVersion": "120",
           "date": "2026-09-09",
@@ -78,15 +88,25 @@
           "minOSVersion": "16.1"
         }
       ],
-      "version": "0.4.15",
-      "versionDate": "2026-09-09",
-      "versionDescription": "fix(auth): synchronize shared client initialization\nfix(home): restore hero position when switching profiles\nfix(playback): disable play when no source is available\nfix(home): reduce hero height without continue watching\nFix NetworkOnMainThreadException when starting a download (#1893)\nfeat: custom static colours\nfeat(members): custom gradient\nAdded Russian translation (#1886)\nfix(downloads): exclude foreground service from playstore builds\nfix(player): preserve each foreground service start notification\nfix(player): synchronize native subtitle rendering\nfix(player): resolve subtitle formats off the main thread\nfeat(ui): unify skeleton loading states\nperf(home): improve lazy list item reuse\nperf(startup): avoid redundant collection and catalog processing\nperf(ios): release temporary GIF decoding resources\nperf(loading): cache bundled animation resource reads\nperf(ui): defer loading and parallax state reads\nfix(streams): refresh resume position Fixes #1866\nfix(android): background downloads",
-      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.15/nuvio-0.4.15-full-release.ipa",
-      "size": 52822264,
+      "version": "0.4.16",
+      "versionDate": "2026-09-11",
+      "versionDescription": "fix(home): settle hero carousel when returning\nfix(settings): require Trakt progress for continue watching window\nperf(ui): replace compottie spinner with native drawing\nfeat(navigation): refine tablet bar and transition defaults\nfeat(navigation): add reactive bottom bar glow\nfeat(navigation): add shared blur transition\nfeat(posters): lift original cards in zoom overlay\nfeat(navigation): update bottom tab animation\nperf(android): add root navigation baseline profile\nfix(settings): defer search indexing until needed\nMerged English and Dutch strings.xml and translated all remaining English text into Dutch. (#1911)\ni18n(el): complete and tidy up Greek translations (#1910)\nfix(ci): increase iOS release timeout\ni18n(vi): full Vietnamese localization refresh for Mobile (#1883)",
+      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.16/nuvio-0.4.16-full-release.ipa",
+      "size": 51012561,
       "minOSVersion": "16.1"
     }
   ],
   "news": [
+    {
+      "title": "Nuvio 0.4.16",
+      "identifier": "com-nuvio-media-0-4-16-b121-iphone-ipad",
+      "caption": "fix(home): settle hero carousel when returning · fix(settings): require Trakt progress for continue watching window · perf(ui): replace compottie spinner with native drawing · f...",
+      "tintColor": "4F7CFF",
+      "date": "2026-09-11",
+      "notify": false,
+      "appID": "com.nuvio.media",
+      "imageURL": "https://raw.githubusercontent.com/NuvioMedia/NuvioMobile/cmp-rewrite/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/app-icon-1024.png"
+    },
     {
       "title": "Nuvio 0.4.15",
       "identifier": "com-nuvio-media-0-4-15-b120-iphone-ipad",
