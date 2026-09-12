@@ -28,6 +28,16 @@
       },
       "versions": [
         {
+          "version": "0.4.17",
+          "buildVersion": "122",
+          "date": "2026-09-12",
+          "localizedDescription": "fix(plugins): restore iOS runtime compilation\nfix(player): disable binge group reuse by default\nperf(plugins): pause search during playback and match TV runtime (#1917)\nfix(sync): prevent automatic pulls from restoring deleted data",
+          "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.17/nuvio-0.4.17-full-release.ipa",
+          "size": 51022041,
+          "sha256": "3adcd75775637c447f16bf0d76ba51e35bd581e10fb3e99e069841298b51366c",
+          "minOSVersion": "16.1"
+        },
+        {
           "version": "0.4.16",
           "buildVersion": "121",
           "date": "2026-09-11",
@@ -88,15 +98,25 @@
           "minOSVersion": "16.1"
         }
       ],
-      "version": "0.4.16",
-      "versionDate": "2026-09-11",
-      "versionDescription": "fix(home): settle hero carousel when returning\nfix(settings): require Trakt progress for continue watching window\nperf(ui): replace compottie spinner with native drawing\nfeat(navigation): refine tablet bar and transition defaults\nfeat(navigation): add reactive bottom bar glow\nfeat(navigation): add shared blur transition\nfeat(posters): lift original cards in zoom overlay\nfeat(navigation): update bottom tab animation\nperf(android): add root navigation baseline profile\nfix(settings): defer search indexing until needed\nMerged English and Dutch strings.xml and translated all remaining English text into Dutch. (#1911)\ni18n(el): complete and tidy up Greek translations (#1910)\nfix(ci): increase iOS release timeout\ni18n(vi): full Vietnamese localization refresh for Mobile (#1883)",
-      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.16/nuvio-0.4.16-full-release.ipa",
-      "size": 51012561,
+      "version": "0.4.17",
+      "versionDate": "2026-09-12",
+      "versionDescription": "fix(plugins): restore iOS runtime compilation\nfix(player): disable binge group reuse by default\nperf(plugins): pause search during playback and match TV runtime (#1917)\nfix(sync): prevent automatic pulls from restoring deleted data",
+      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.17/nuvio-0.4.17-full-release.ipa",
+      "size": 51022041,
       "minOSVersion": "16.1"
     }
   ],
   "news": [
+    {
+      "title": "Nuvio 0.4.17",
+      "identifier": "com-nuvio-media-0-4-17-b122-iphone-ipad",
+      "caption": "fix(plugins): restore iOS runtime compilation · fix(player): disable binge group reuse by default · perf(plugins): pause search during playback and match TV runtime (#1917) · fi...",
+      "tintColor": "4F7CFF",
+      "date": "2026-09-12",
+      "notify": false,
+      "appID": "com.nuvio.media",
+      "imageURL": "https://raw.githubusercontent.com/NuvioMedia/NuvioMobile/cmp-rewrite/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/app-icon-1024.png"
+    },
     {
       "title": "Nuvio 0.4.16",
       "identifier": "com-nuvio-media-0-4-16-b121-iphone-ipad",
