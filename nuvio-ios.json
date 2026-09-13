@@ -28,6 +28,16 @@
       },
       "versions": [
         {
+          "version": "0.4.18",
+          "buildVersion": "123",
+          "date": "2026-09-13",
+          "localizedDescription": "fix(profiles): stabilize popup size transitions\nfix(details): apply poster radius to episode list cards\nfix(home): apply poster settings to continue watching cards\nfix(streams): position sources panel below ios toolbar\nfix(navigation): preserve tab animation on tap release\nfix(profiles): correct avatar grid spacing and selection border\nfeat(player): match tv autoplay loading screen\nfix(settings): match custom theme sheet background\nfix(catalog): update items after library removal\nfix(navigation): correct poster zoom positioning in rtl\nfix(settings): update selection indicators\nfeat(profiles): redesign compact profile picker\nfeat(navigation): add glow controls and live preview\nfix(navigation): keep tablet floating bar compact\nfix(navigation): restore floating bar backdrop tint\nfix(navigation): restore tab indicator after profile long press\nupdate readme\nfeat(player): add pause overlay toggle\nfix(details): handle null specials poster placeholders\nfix(player): disable playback gestures during initial loading\nfix(android): correct bottom navigation behavior in RTL (#1926)\ni18n(vi): update latest Vietnamese strings (#1923)\nUpdate Czech translation (#1919)",
+          "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.18/nuvio-0.4.18-full-release.ipa",
+          "size": 51099484,
+          "sha256": "1f742ce8922c78c0c4d5f20348aa547a4290d80576402af6f3f395a6c6bfc9e0",
+          "minOSVersion": "16.1"
+        },
+        {
           "version": "0.4.17",
           "buildVersion": "122",
           "date": "2026-09-12",
@@ -98,15 +108,25 @@
           "minOSVersion": "16.1"
         }
       ],
-      "version": "0.4.17",
-      "versionDate": "2026-09-12",
-      "versionDescription": "fix(plugins): restore iOS runtime compilation\nfix(player): disable binge group reuse by default\nperf(plugins): pause search during playback and match TV runtime (#1917)\nfix(sync): prevent automatic pulls from restoring deleted data",
-      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.17/nuvio-0.4.17-full-release.ipa",
-      "size": 51022041,
+      "version": "0.4.18",
+      "versionDate": "2026-09-13",
+      "versionDescription": "fix(profiles): stabilize popup size transitions\nfix(details): apply poster radius to episode list cards\nfix(home): apply poster settings to continue watching cards\nfix(streams): position sources panel below ios toolbar\nfix(navigation): preserve tab animation on tap release\nfix(profiles): correct avatar grid spacing and selection border\nfeat(player): match tv autoplay loading screen\nfix(settings): match custom theme sheet background\nfix(catalog): update items after library removal\nfix(navigation): correct poster zoom positioning in rtl\nfix(settings): update selection indicators\nfeat(profiles): redesign compact profile picker\nfeat(navigation): add glow controls and live preview\nfix(navigation): keep tablet floating bar compact\nfix(navigation): restore floating bar backdrop tint\nfix(navigation): restore tab indicator after profile long press\nupdate readme\nfeat(player): add pause overlay toggle\nfix(details): handle null specials poster placeholders\nfix(player): disable playback gestures during initial loading\nfix(android): correct bottom navigation behavior in RTL (#1926)\ni18n(vi): update latest Vietnamese strings (#1923)\nUpdate Czech translation (#1919)",
+      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.18/nuvio-0.4.18-full-release.ipa",
+      "size": 51099484,
       "minOSVersion": "16.1"
     }
   ],
   "news": [
+    {
+      "title": "Nuvio 0.4.18",
+      "identifier": "com-nuvio-media-0-4-18-b123-iphone-ipad",
+      "caption": "fix(profiles): stabilize popup size transitions · fix(details): apply poster radius to episode list cards · fix(home): apply poster settings to continue watching cards · fix(str...",
+      "tintColor": "4F7CFF",
+      "date": "2026-09-13",
+      "notify": false,
+      "appID": "com.nuvio.media",
+      "imageURL": "https://raw.githubusercontent.com/NuvioMedia/NuvioMobile/cmp-rewrite/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/app-icon-1024.png"
+    },
     {
       "title": "Nuvio 0.4.17",
       "identifier": "com-nuvio-media-0-4-17-b122-iphone-ipad",
