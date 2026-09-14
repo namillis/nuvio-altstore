@@ -28,6 +28,16 @@
       },
       "versions": [
         {
+          "version": "0.4.20",
+          "buildVersion": "125",
+          "date": "2026-09-14",
+          "localizedDescription": "feat(streams): add mobile background selection\nfix(player): center loading title and logo\nfeat(player): dismiss next episode prompt with a right swipe\nfix(details): match toggle styles and remove duplicate season headings\nfix(library): sync title logo\nfix(details): use localized landscape backdrops\nfeat(trailer): add fullscreen playback\nperf(navigation): reduce tab switch animation stalls",
+          "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.20/nuvio-0.4.20-full-release.ipa",
+          "size": 51167786,
+          "sha256": "5c48df020b647bd1d08f384278578a204002d37aa0a3a7a8025bab91ffa002d8",
+          "minOSVersion": "16.1"
+        },
+        {
           "version": "0.4.19",
           "buildVersion": "124",
           "date": "2026-09-13",
@@ -118,15 +128,25 @@
           "minOSVersion": "16.1"
         }
       ],
-      "version": "0.4.19",
-      "versionDate": "2026-09-13",
-      "versionDescription": "feat(downloads): add support for bundling addon subs while downloading\nfix(streams): prevent rotation when opening manual selection\nfeat(search): add recent searches toggle\nfix(tmdb): use bundled API key",
-      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.19/nuvio-0.4.19-full-release.ipa",
-      "size": 51091230,
+      "version": "0.4.20",
+      "versionDate": "2026-09-14",
+      "versionDescription": "feat(streams): add mobile background selection\nfix(player): center loading title and logo\nfeat(player): dismiss next episode prompt with a right swipe\nfix(details): match toggle styles and remove duplicate season headings\nfix(library): sync title logo\nfix(details): use localized landscape backdrops\nfeat(trailer): add fullscreen playback\nperf(navigation): reduce tab switch animation stalls",
+      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.20/nuvio-0.4.20-full-release.ipa",
+      "size": 51167786,
       "minOSVersion": "16.1"
     }
   ],
   "news": [
+    {
+      "title": "Nuvio 0.4.20",
+      "identifier": "com-nuvio-media-0-4-20-b125-iphone-ipad",
+      "caption": "feat(streams): add mobile background selection · fix(player): center loading title and logo · feat(player): dismiss next episode prompt with a right swipe · fix(details): match...",
+      "tintColor": "4F7CFF",
+      "date": "2026-09-14",
+      "notify": false,
+      "appID": "com.nuvio.media",
+      "imageURL": "https://raw.githubusercontent.com/NuvioMedia/NuvioMobile/cmp-rewrite/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/app-icon-1024.png"
+    },
     {
       "title": "Nuvio 0.4.19",
       "identifier": "com-nuvio-media-0-4-19-b124-iphone-ipad",
