@@ -39,7 +39,7 @@ https://raw.githubusercontent.com/namillis/nuvio-altstore/main/nuvio-ios.json
 
 | App | Bundle identifier | Latest version | Minimum iOS | Upstream |
 |---|---|---:|---:|---|
-| Nuvio | `com.nuvio.media` | 0.4.20 (build 125) | 16.1 | [NuvioMobile](https://github.com/NuvioMedia/NuvioMobile/releases) |
+| Nuvio | `com.nuvio.media` | 0.4.21 (build 126) | 16.1 | [NuvioMobile](https://github.com/NuvioMedia/NuvioMobile/releases) |
 
 ## Compatible signing apps
 

@@ -28,6 +28,16 @@
       },
       "versions": [
         {
+          "version": "0.4.21",
+          "buildVersion": "126",
+          "date": "2026-09-15",
+          "localizedDescription": "fix(home): match continue watching badge colors to tv\nperf(navigation): reduce root tab switch stalls\nAdd TVDB anime ID preference to avoid per-season IMDB splits (#1952)\nRevert \"perf(navigation): reduce tab switch animation stalls\"\nfix(player): keep android landscape lock during exit\nfix(profiles): add active profile toast and back button\nfix(profiles): prevent selecting the active profile\nfix(player): hide addons with no streams\nfix(player): start playback without waiting for addon subtitles (#1949)\nfix(trailer): open ios playback in fullscreen\nFix anime skip mapping, subtitle language detection, watched badges and Polish translations (#1943)",
+          "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.21/nuvio-0.4.21-full-release.ipa",
+          "size": 51231186,
+          "sha256": "118eb04f4a945cf8da9e4bbc03969ee360c0e47b7a62d1ade7967d86ad75870e",
+          "minOSVersion": "16.1"
+        },
+        {
           "version": "0.4.20",
           "buildVersion": "125",
           "date": "2026-09-14",
@@ -128,15 +138,25 @@
           "minOSVersion": "16.1"
         }
       ],
-      "version": "0.4.20",
-      "versionDate": "2026-09-14",
-      "versionDescription": "feat(streams): add mobile background selection\nfix(player): center loading title and logo\nfeat(player): dismiss next episode prompt with a right swipe\nfix(details): match toggle styles and remove duplicate season headings\nfix(library): sync title logo\nfix(details): use localized landscape backdrops\nfeat(trailer): add fullscreen playback\nperf(navigation): reduce tab switch animation stalls",
-      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.20/nuvio-0.4.20-full-release.ipa",
-      "size": 51167786,
+      "version": "0.4.21",
+      "versionDate": "2026-09-15",
+      "versionDescription": "fix(home): match continue watching badge colors to tv\nperf(navigation): reduce root tab switch stalls\nAdd TVDB anime ID preference to avoid per-season IMDB splits (#1952)\nRevert \"perf(navigation): reduce tab switch animation stalls\"\nfix(player): keep android landscape lock during exit\nfix(profiles): add active profile toast and back button\nfix(profiles): prevent selecting the active profile\nfix(player): hide addons with no streams\nfix(player): start playback without waiting for addon subtitles (#1949)\nfix(trailer): open ios playback in fullscreen\nFix anime skip mapping, subtitle language detection, watched badges and Polish translations (#1943)",
+      "downloadURL": "https://github.com/NuvioMedia/NuvioMobile/releases/download/0.4.21/nuvio-0.4.21-full-release.ipa",
+      "size": 51231186,
       "minOSVersion": "16.1"
     }
   ],
   "news": [
+    {
+      "title": "Nuvio 0.4.21",
+      "identifier": "com-nuvio-media-0-4-21-b126-iphone-ipad",
+      "caption": "fix(home): match continue watching badge colors to tv · perf(navigation): reduce root tab switch stalls · Add TVDB anime ID preference to avoid per-season IMDB splits (#1952) ·...",
+      "tintColor": "4F7CFF",
+      "date": "2026-09-15",
+      "notify": false,
+      "appID": "com.nuvio.media",
+      "imageURL": "https://raw.githubusercontent.com/NuvioMedia/NuvioMobile/cmp-rewrite/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/app-icon-1024.png"
+    },
     {
       "title": "Nuvio 0.4.20",
       "identifier": "com-nuvio-media-0-4-20-b125-iphone-ipad",
